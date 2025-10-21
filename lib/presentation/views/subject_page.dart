@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:schoolhub_flutter/data/model/subject.dart';
+import 'package:schoolhub_flutter/presentation/widgets/topic/topic_bloc_consumer.dart';
 import 'package:schoolhub_flutter/presentation/widgets/topic/topic_listing.dart';
 
 class SubjectPage extends StatelessWidget {
@@ -23,7 +24,7 @@ class SubjectPage extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Expanded(child: TopicListing())
+            Expanded(child: TopicBlocConsumer(subject: subject))
           ],
         ),
       )),

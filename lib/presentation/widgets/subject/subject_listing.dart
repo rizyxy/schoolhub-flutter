@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:schoolhub_flutter/data/model/subject.dart';
+import 'package:schoolhub_flutter/presentation/bloc/topic_bloc/topic_bloc.dart';
 import 'package:schoolhub_flutter/presentation/views/subject_page.dart';
 
 class SubjectListing extends StatelessWidget {
@@ -16,8 +18,10 @@ class SubjectListing extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) =>
-                          SubjectPage(subject: subjects[index])));
+                      builder: (context) => BlocProvider(
+                          create: (context) => TopicBloc()
+                            ..add(FetchTopics(subject: subjects[index])),
+                          child: SubjectPage(subject: subjects[index]))));
             },
             child: Ink(
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
