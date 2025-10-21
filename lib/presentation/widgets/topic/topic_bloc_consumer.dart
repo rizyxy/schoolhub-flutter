@@ -44,7 +44,9 @@ class TopicBlocConsumer extends StatelessWidget {
       }
 
       if (state is TopicSuccess) {
-        return TopicListing();
+        return TopicListing(
+          topics: state.topics,
+        );
       }
 
       return SizedBox.shrink();
