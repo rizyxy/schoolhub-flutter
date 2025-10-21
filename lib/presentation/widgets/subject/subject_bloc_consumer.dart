@@ -41,7 +41,9 @@ class SubjectBlocConsumer extends StatelessWidget {
       }
 
       if (state is SubjectSuccess) {
-        return SubjectListing();
+        return SubjectListing(
+          subjects: state.subjects,
+        );
       }
 
       return SizedBox.shrink();

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:schoolhub_flutter/data/model/subject.dart';
 
 class SubjectListing extends StatelessWidget {
-  const SubjectListing({
-    super.key,
-  });
+  const SubjectListing({super.key, required this.subjects});
+
+  final List<SubjectModel> subjects;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class SubjectListing extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Text(
-                    "Matematika",
+                    subjects[index].name,
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                 ],
@@ -30,6 +31,6 @@ class SubjectListing extends StatelessWidget {
             height: 20,
           );
         },
-        itemCount: 10);
+        itemCount: subjects.length);
   }
 }
