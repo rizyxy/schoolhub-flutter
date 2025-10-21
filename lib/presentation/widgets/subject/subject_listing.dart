@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:schoolhub_flutter/data/model/subject.dart';
+import 'package:schoolhub_flutter/presentation/views/subject_page.dart';
 
 class SubjectListing extends StatelessWidget {
   const SubjectListing({super.key, required this.subjects});
@@ -11,7 +12,13 @@ class SubjectListing extends StatelessWidget {
     return ListView.separated(
         itemBuilder: (context, index) {
           return InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          SubjectPage(subject: subjects[index])));
+            },
             child: Ink(
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: Column(
