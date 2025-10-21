@@ -1,0 +1,24 @@
+part of 'subject_bloc.dart';
+
+sealed class SubjectState extends Equatable {
+  const SubjectState();
+
+  @override
+  List<Object?> get props => throw UnimplementedError();
+}
+
+class SubjectInitial extends SubjectState {}
+
+class SubjectLoading extends SubjectState {}
+
+class SubjectSuccess extends SubjectState {}
+
+class SubjectError extends SubjectState {
+  final String? errorMessage;
+
+  const SubjectError({this.errorMessage});
+
+  @override
+  // TODO: implement props
+  List<Object?> get props => [errorMessage];
+}
