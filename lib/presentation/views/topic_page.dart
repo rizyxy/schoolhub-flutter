@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:schoolhub_flutter/data/model/topic.dart';
+import 'package:schoolhub_flutter/presentation/bloc/drill_creation_bloc/drill_creation_bloc.dart';
+import 'package:schoolhub_flutter/presentation/widgets/drill/drill_creation_bloc_consumer.dart';
 
 class TopicPage extends StatelessWidget {
   const TopicPage({super.key, required this.topic});
@@ -22,17 +25,7 @@ class TopicPage extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            InkWell(
-              onTap: () {},
-              child: Ink(
-                padding: EdgeInsets.symmetric(vertical: 10),
-                decoration: BoxDecoration(color: Colors.grey.shade200),
-                child: Text(
-                  "Create Drill",
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            )
+            DrillCreationBlocConsumer(topic: topic)
           ],
         ),
       )),

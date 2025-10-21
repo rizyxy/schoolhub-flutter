@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:schoolhub_flutter/data/model/topic.dart';
+import 'package:schoolhub_flutter/presentation/bloc/drill_creation_bloc/drill_creation_bloc.dart';
 import 'package:schoolhub_flutter/presentation/views/topic_page.dart';
 
 class TopicListing extends StatelessWidget {
@@ -16,7 +18,12 @@ class TopicListing extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => TopicPage(topic: topics[index])));
+                      builder: (context) => MultiBlocProvider(
+                              providers: <BlocProvider>[
+                                BlocProvider<DrillCreationBloc>(
+                                    create: (context) => DrillCreationBloc())
+                              ],
+                              child: TopicPage(topic: topics[index]))));
             },
             child: Ink(
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
