@@ -36,7 +36,7 @@ class DrillQuestionModel {
   factory DrillQuestionModel.fromMap(Map<String, dynamic> map) {
     return DrillQuestionModel(
       id: map['id'] as int,
-      answer: map['answer'] != null ? map['answer'] as String : null,
+      answer: map['answer'] as String?,
       question: QuestionModel.fromMap(map['question'] as Map<String, dynamic>),
     );
   }

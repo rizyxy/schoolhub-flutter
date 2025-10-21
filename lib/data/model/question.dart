@@ -59,8 +59,7 @@ class QuestionModel {
       optionC: map['option_c'] as String,
       optionD: map['option_d'] as String,
       correctAnswer: map['correct_answer'] as String,
-      explanation:
-          map['explanation'] != null ? map['explanation'] as String : null,
+      explanation: map['explanation'] as String?,
     );
   }
 
