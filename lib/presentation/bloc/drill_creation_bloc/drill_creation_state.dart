@@ -11,7 +11,14 @@ class DrillCreationInitial extends DrillCreationState {}
 
 class DrillCreationLoading extends DrillCreationState {}
 
-class DrillCreationSuccess extends DrillCreationState {}
+class DrillCreationSuccess extends DrillCreationState {
+  final DrillModel drill;
+
+  const DrillCreationSuccess({required this.drill});
+
+  @override
+  List<Object?> get props => [drill];
+}
 
 class DrillCreationError extends DrillCreationState {
   final String? errorMessage;

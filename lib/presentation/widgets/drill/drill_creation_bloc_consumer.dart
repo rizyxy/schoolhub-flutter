@@ -24,7 +24,11 @@ class DrillCreationBlocConsumer extends StatelessWidget {
 
       if (state is DrillCreationSuccess) {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => DrillPage()));
+            context,
+            MaterialPageRoute(
+                builder: (context) => DrillPage(
+                      drill: state.drill,
+                    )));
       }
     }, builder: (context, state) {
       return InkWell(
