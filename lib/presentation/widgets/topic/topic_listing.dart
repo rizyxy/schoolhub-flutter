@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:schoolhub_flutter/data/model/topic.dart';
+import 'package:schoolhub_flutter/presentation/views/topic_page.dart';
 
 class TopicListing extends StatelessWidget {
   const TopicListing({super.key, required this.topics});
@@ -11,6 +12,12 @@ class TopicListing extends StatelessWidget {
     return ListView.separated(
         itemBuilder: (context, index) {
           return InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => TopicPage(topic: topics[index])));
+            },
             child: Ink(
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: Text(
